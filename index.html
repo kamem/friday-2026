@@ -1,0 +1,1320 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>kame's portfolio | Webフロントエンドエンジニア</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-sky: #e5f2fb;
+        --bg-wash: #dbeaf8;
+        --white: #ffffff;
+        --text: #1e3550;
+        --text-muted: #4a6278;
+        --accent: #ec7eb4;
+        --accent-hover: #e05a9f;
+        --accent-soft: rgba(236, 126, 180, 0.15);
+        --blue-soft: #c5dff2;
+        --tag-bg: #dcecf8;
+        --shadow: 0 12px 40px rgba(30, 53, 80, 0.08);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --radius-sm: 999px;
+        --max: 1120px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          "Zen Maru Gothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+          sans-serif;
+        color: var(--text);
+        background: var(--bg-sky);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .page-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse 80% 50% at 10% 20%,
+            rgba(197, 223, 242, 0.7) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 90% 10%,
+            rgba(220, 210, 245, 0.35) 0%,
+            transparent 45%
+          ),
+          var(--bg-sky);
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(0px);
+        opacity: 0.5;
+      }
+
+      .blob-1 {
+        width: 420px;
+        height: 380px;
+        background: linear-gradient(135deg, var(--blue-soft), #b8d4ec);
+        top: 12%;
+        right: -8%;
+        transform: rotate(-12deg);
+      }
+
+      .blob-2 {
+        width: 320px;
+        height: 280px;
+        background: linear-gradient(160deg, #d4e8f7, #c9dff5);
+        bottom: 18%;
+        left: -6%;
+      }
+
+      .dots {
+        position: absolute;
+        width: 120px;
+        height: 80px;
+        background-image: radial-gradient(
+          circle,
+          var(--blue-soft) 2px,
+          transparent 2px
+        );
+        background-size: 14px 14px;
+        opacity: 0.6;
+        top: 22%;
+        left: 8%;
+      }
+
+      .container {
+        width: min(100% - 40px, var(--max));
+        margin-inline: auto;
+      }
+
+      /* Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 14px 0;
+        background: rgba(229, 242, 251, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text);
+      }
+
+      .logo svg {
+        flex-shrink: 0;
+      }
+
+      .nav-main {
+        display: flex;
+        align-items: center;
+        gap: 8px 20px;
+        flex-wrap: wrap;
+      }
+
+      .nav-main a:not(.btn-nav) {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        transition: color 0.2s;
+      }
+
+      .nav-main a:not(.btn-nav):hover {
+        color: var(--accent);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          transform 0.15s;
+        font-family: inherit;
+      }
+
+      .btn:active {
+        transform: scale(0.98);
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--white);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+      }
+
+      .btn-outline {
+        background: var(--white);
+        color: var(--accent);
+        border: 2px solid var(--accent);
+      }
+
+      .btn-outline:hover {
+        background: var(--accent-soft);
+      }
+
+      .btn-nav {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+      }
+
+      .icon-sm {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 56px 0 72px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-actions {
+          justify-content: center;
+        }
+
+        .hero-visual {
+          order: -1;
+          max-width: 400px;
+          margin-inline: auto;
+        }
+
+        .nav-main {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .site-header .btn-nav {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      .hero h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 5vw, 2.75rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .hero .lead-role {
+        margin: 0 0 16px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .hero .intro {
+        margin: 0 0 28px;
+        color: var(--text-muted);
+        font-size: 1rem;
+        max-width: 36ch;
+      }
+
+      @media (max-width: 900px) {
+        .hero .intro {
+          margin-inline: auto;
+        }
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+
+      .hero-illustration {
+        background: linear-gradient(160deg, #f0f8fd 0%, #dceaf6 100%);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      /* Cards */
+      .card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: 36px 40px;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+      }
+
+      @media (max-width: 640px) {
+        .card {
+          padding: 28px 22px;
+        }
+      }
+
+      .section {
+        margin-bottom: 48px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin: 0 0 20px;
+      }
+
+      .section-title svg {
+        color: var(--accent);
+      }
+
+      /* Profile */
+      .profile-grid {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .profile-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .profile-aside .social {
+          justify-content: center;
+        }
+
+        .profile-aside .loc {
+          justify-content: center;
+        }
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, var(--blue-soft), #e8f4fc);
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid var(--white);
+        box-shadow: 0 8px 24px rgba(30, 53, 80, 0.1);
+      }
+
+      .profile-aside h2 {
+        margin: 0 0 6px;
+        font-size: 1.5rem;
+      }
+
+      .profile-aside .role {
+        margin: 0 0 12px;
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 0.95rem;
+      }
+
+      .loc {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+        justify-content: flex-start;
+      }
+
+      .social {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .social a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--blue-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .social a:hover {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+
+      .info-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .info-item {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .info-item svg {
+        margin-top: 4px;
+        color: #5a8fb8;
+      }
+
+      .info-item dt {
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .info-item dd {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+
+      /* Skills */
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-tag {
+        padding: 10px 18px;
+        background: var(--tag-bg);
+        border-radius: var(--radius-sm);
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      /* Projects */
+      .projects-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .projects-head .section-title {
+        margin: 0;
+      }
+
+      .link-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--accent);
+      }
+
+      .link-arrow:hover {
+        text-decoration: underline;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      @media (max-width: 900px) {
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .project-card {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        transition: transform 0.2s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .project-thumb {
+        aspect-ratio: 16 / 10;
+        background: linear-gradient(135deg, #dcecf8, #e8f2fa);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(30, 53, 80, 0.25);
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .project-body {
+        padding: 20px 20px 22px;
+      }
+
+      .project-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.05rem;
+      }
+
+      .project-body p {
+        margin: 0 0 14px;
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .project-tech span {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        background: var(--tag-bg);
+        border-radius: var(--radius-sm);
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 22px;
+      }
+
+      .carousel-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--blue-soft);
+      }
+
+      .carousel-dots span.active {
+        background: var(--accent);
+        transform: scale(1.15);
+      }
+
+      /* Contact */
+      .contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .contact-inner {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .contact-text {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin: 0 0 22px;
+        max-width: 40ch;
+      }
+
+      .contact-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      @media (max-width: 640px) {
+        .contact-links {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .contact-box {
+        background: var(--bg-sky);
+        border-radius: var(--radius-md);
+        padding: 18px;
+        text-align: center;
+        border: 1px solid rgba(197, 223, 242, 0.8);
+      }
+
+      .contact-box svg {
+        margin: 0 auto 10px;
+        color: var(--text);
+      }
+
+      .contact-box strong {
+        display: block;
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+      }
+
+      .contact-box small {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .contact-box a.url {
+        font-size: 0.85rem;
+        color: var(--accent);
+        font-weight: 700;
+        word-break: break-all;
+      }
+
+      .footer-wave {
+        margin-top: 48px;
+        height: 80px;
+        color: var(--bg-wash);
+      }
+
+      .footer-wave svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="dots"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#top" class="logo">
+          <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+            <ellipse cx="18" cy="20" rx="14" ry="11" fill="#7eb8e0" />
+            <ellipse cx="18" cy="18" rx="10" ry="8" fill="#a8d4ef" />
+            <circle cx="12" cy="16" r="2" fill="#1e3550" />
+            <circle cx="22" cy="16" r="2" fill="#1e3550" />
+            <path
+              d="M14 22 Q18 25 22 22"
+              stroke="#1e3550"
+              stroke-width="1.2"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <ellipse cx="18" cy="9" rx="5" ry="3" fill="#7eb8e0" />
+          </svg>
+          kame's portfolio
+        </a>
+        <nav class="nav-main" aria-label="メインナビゲーション">
+          <a href="#top">ホーム</a>
+          <a href="#profile">プロフィール</a>
+          <a href="#skills">スキル</a>
+          <a href="#projects">制作実績</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="#contact" class="btn btn-primary btn-nav">
+            <svg
+              class="icon-sm"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+              />
+            </svg>
+            お問い合わせ
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>kame's portfolio</h1>
+            <p class="lead-role">Webフロントエンドエンジニア</p>
+            <p class="intro">
+              使いやすく、保守しやすく、ちょっと心地よいWeb UIをつくります。
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <svg
+                  class="icon-sm"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+                制作実績を見る
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                <svg
+                  class="icon-sm"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  />
+                </svg>
+                お問い合わせ
+              </a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-illustration">
+              <svg
+                viewBox="0 0 400 280"
+                width="100%"
+                height="auto"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="desk" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#eef6fc" />
+                    <stop offset="100%" stop-color="#d8e9f5" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="280" fill="url(#desk)" rx="12" />
+                <ellipse
+                  cx="320"
+                  cy="50"
+                  rx="70"
+                  ry="40"
+                  fill="#e0edf8"
+                  opacity="0.9"
+                />
+                <ellipse
+                  cx="60"
+                  cy="200"
+                  rx="50"
+                  ry="30"
+                  fill="#e8f0fa"
+                  opacity="0.85"
+                />
+                <g transform="translate(95, 48)">
+                  <rect
+                    x="0"
+                    y="20"
+                    width="200"
+                    height="125"
+                    rx="8"
+                    fill="#c8d6e4"
+                  />
+                  <rect
+                    x="8"
+                    y="28"
+                    width="184"
+                    height="101"
+                    rx="4"
+                    fill="#1e3550"
+                  />
+                  <rect
+                    x="18"
+                    y="38"
+                    width="70"
+                    height="8"
+                    rx="2"
+                    fill="#ec7eb4"
+                    opacity="0.9"
+                  />
+                  <rect
+                    x="18"
+                    y="52"
+                    width="120"
+                    height="6"
+                    rx="2"
+                    fill="#5a8fb8"
+                    opacity="0.8"
+                  />
+                  <rect
+                    x="18"
+                    y="64"
+                    width="100"
+                    height="6"
+                    rx="2"
+                    fill="#5a8fb8"
+                    opacity="0.5"
+                  />
+                  <rect
+                    x="18"
+                    y="76"
+                    width="90"
+                    height="6"
+                    rx="2"
+                    fill="#5a8fb8"
+                    opacity="0.35"
+                  />
+                  <path
+                    d="M60 145 L140 145 L130 168 L70 168 Z"
+                    fill="#aebccf"
+                  />
+                </g>
+                <g transform="translate(278, 155)">
+                  <path d="M8 35 L22 35 L20 8 Q14 0 8 8 Z" fill="#7eb8e0" />
+                  <ellipse cx="15" cy="38" rx="18" ry="6" fill="#b8d4ec" />
+                </g>
+                <g transform="translate(300, 168)">
+                  <path
+                    d="M20 0 Q26 4 26 14 L26 38 Q26 44 20 44 L8 44 Q2 44 2 38 L2 14 Q2 4 8 0 Z"
+                    fill="#f5b8d9"
+                  />
+                  <ellipse cx="14" cy="-2" rx="12" ry="4" fill="#fce4f0" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <section
+          id="profile"
+          class="section card"
+          aria-labelledby="profile-heading"
+        >
+          <div class="profile-grid">
+            <aside class="profile-aside">
+              <div class="avatar" aria-hidden="true">
+                <svg width="72" height="72" viewBox="0 0 72 72">
+                  <ellipse cx="36" cy="42" rx="26" ry="20" fill="#7eb8e0" />
+                  <ellipse cx="36" cy="38" rx="18" ry="14" fill="#bfe0f5" />
+                  <circle cx="28" cy="34" r="3" fill="#1e3550" />
+                  <circle cx="44" cy="34" r="3" fill="#1e3550" />
+                  <path
+                    d="M30 46 Q36 50 42 46"
+                    stroke="#1e3550"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h2 id="profile-heading">Kame</h2>
+              <p class="role">フロントエンドエンジニア</p>
+              <p class="loc">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Japan
+              </p>
+              <div class="social">
+                <a
+                  href="https://github.com/kamem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://twitter.com/kamem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X（Twitter）"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://kame.blog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ブログ"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                </a>
+              </div>
+            </aside>
+            <dl class="info-list">
+              <div class="info-item">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+                <div>
+                  <dt>得意領域</dt>
+                  <dd>React / Next.js / TypeScript / UI実装</dd>
+                </div>
+              </div>
+              <div class="info-item">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+                <div>
+                  <dt>経験</dt>
+                  <dd>
+                    Webアプリケーション開発、UIコンポーネント設計、Storybook、VRT、開発体験の改善
+                  </dd>
+                </div>
+              </div>
+              <div class="info-item">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+                <div>
+                  <dt>強み</dt>
+                  <dd>
+                    丁寧なUI実装、保守性を意識した設計、デザイナーとの協業
+                  </dd>
+                </div>
+              </div>
+              <div class="info-item">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+                  />
+                  <path d="M5 3v4" />
+                  <path d="M19 17v4" />
+                  <path d="M3 5h4" />
+                  <path d="M17 19h4" />
+                </svg>
+                <div>
+                  <dt>興味分野</dt>
+                  <dd>
+                    デザインシステム、アクセシビリティ、Developer
+                    Experience、AI活用
+                  </dd>
+                </div>
+              </div>
+              <div class="info-item">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <div>
+                  <dt>自己紹介</dt>
+                  <dd>
+                    淡くやさしい見た目と、使いやすさ・保守しやすさを両立したWeb
+                    UIをつくるフロントエンドエンジニアです。
+                  </dd>
+                </div>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section id="skills" class="section" aria-labelledby="skills-heading">
+          <h2 id="skills-heading" class="section-title">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path
+                d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19A4 4 0 1 1 21 12.49l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19"
+              />
+            </svg>
+            スキル
+          </h2>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">Storybook</span>
+            <span class="skill-tag">Playwright</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">UI Design</span>
+            <span class="skill-tag">Accessibility</span>
+          </div>
+        </section>
+
+        <section
+          id="projects"
+          class="section"
+          aria-labelledby="projects-heading"
+        >
+          <div class="projects-head">
+            <h2 id="projects-heading" class="section-title">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              制作実績
+            </h2>
+            <a href="#projects" class="link-arrow">
+              すべての実績を見る
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-thumb">Dashboard preview</div>
+              <div class="project-body">
+                <h3>タスク管理ダッシュボード</h3>
+                <p>
+                  チーム向けのタスク可視化とフィルタリングを備えたダッシュボード。レスポンシブとキーボード操作に配慮したUIです。
+                </p>
+                <div class="project-tech">
+                  <span>Next.js</span>
+                  <span>TypeScript</span>
+                  <span>Tailwind CSS</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-thumb">Corporate site</div>
+              <div class="project-body">
+                <h3>コーポレートサイトリニューアル</h3>
+                <p>
+                  ブランドガイドに沿ったコンポーネント設計と、コンテンツ編集しやすい情報設計でサイト全体を刷新しました。
+                </p>
+                <div class="project-tech">
+                  <span>React</span>
+                  <span>Storybook</span>
+                  <span>CMS</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-thumb">SaaS UI</div>
+              <div class="project-body">
+                <h3>SaaSプロダクトのUI実装</h3>
+                <p>
+                  複雑なフォームと一覧画面をデザインシステムに載せ替え、アクセシビリティレビューまで対応した実装です。
+                </p>
+                <div class="project-tech">
+                  <span>Next.js</span>
+                  <span>Playwright</span>
+                  <span>a11y</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="carousel-dots" aria-hidden="true">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+          </div>
+        </section>
+
+        <section
+          id="contact"
+          class="section card"
+          aria-labelledby="contact-heading"
+        >
+          <h2 id="contact-heading" class="section-title">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+              />
+            </svg>
+            お問い合わせ
+          </h2>
+          <div class="contact-inner">
+            <div>
+              <p class="contact-text">
+                お仕事のご依頼やご相談など、下記のリンクからお気軽にご連絡ください。
+              </p>
+            </div>
+            <div class="contact-links">
+              <div class="contact-box">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+                <strong>GitHub</strong>
+                <small>コード・OSS</small>
+                <a
+                  class="url"
+                  href="https://github.com/kamem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >github.com/kamem</a
+                >
+              </div>
+              <div class="contact-box">
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+                <strong>X（Twitter）</strong>
+                <small>つぶやき・情報発信</small>
+                <a
+                  class="url"
+                  href="https://twitter.com/kamem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >@kamem</a
+                >
+              </div>
+              <div class="contact-box">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+                <strong>Blog</strong>
+                <small>技術記事</small>
+                <a
+                  class="url"
+                  href="https://kame.blog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >kame.blog</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="footer-wave" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="currentColor"
+            d="M0,64 C240,120 480,0 720,48 C960,96 1200,24 1440,56 L1440,120 L0,120 Z"
+          />
+        </svg>
+      </div>
+    </main>
+  </body>
+</html>
