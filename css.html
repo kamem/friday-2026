@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS講座</title>
+    <link rel="stylesheet" href="common.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1 class="site-title">CSS講座</h1>
+    </header>
+    <main class="site-main">
+      <article class="content-article">
+        <h1 class="content-title">CSSの基本</h1>
+        <p class="content-text">
+          CSSはCascading Style Sheetsの略です。
+          CSSはHTMLの見た目を調整するための言語です。
+        </p>
+        <section class="content-item">
+          <h2 class="content-item-title">width、padding、borderの関係性</h2>
+          <p class="box">text</p>
+          <p class="box border-box">text</p>
+        </section>
+        <section class="content-item">
+          <h2 class="content-item-title">真ん中寄せのやり方</h2>
+          <p class="box margin-auto">text</p>
+        </section>
+
+        <section class="content-item">
+          <h2 class="content-item-title">positionについて</h2>
+
+          <p class="box position-relative">relative</p>
+          <p class="box position-absolute">absolute</p>
+          <p class="box position-fixed">fixed</p>
+
+          <div class="box-container-wrapper">
+            <div class="box-container">
+              <p class="box position-absolute">absolute</p>
+            </div>
+          </div>
+
+          <div class="new-mark-sample-wrap">
+            <p class="new-mark-sample-note">
+              親に <code>position: relative</code>、バッジに
+              <code>position: absolute</code>
+              を指定すると、角の外にはみ出して配置できます。
+            </p>
+            <article
+              class="new-mark-sample-card"
+              aria-labelledby="new-mark-sample-title"
+            >
+              <span class="new-mark-sample-badge">NEW</span>
+              <h3 id="new-mark-sample-title" class="new-mark-sample-title">
+                サンプル記事のタイトル
+              </h3>
+              <p class="new-mark-sample-body">
+                カード全体を基準にした absolute で、右上に NEW を重ねています。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-item">
+          <h2 class="content-item-title">横並びメニュー</h2>
+
+          <ul class="menu">
+            <li class="menu-item">
+              <a class="menu-link" href="#">ホーム</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">プロフィール</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">設定</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+          </ul>
+
+          <ul class="menu column-menu">
+            <li class="menu-item">
+              <a class="menu-link" href="#">ホーム</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">プロフィール</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">設定</a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="#">ヘルプ</a>
+            </li>
+          </ul>
+
+          <section class="content-item">
+            <h2 class="content-item-title">flexboxの配置について</h2>
+            <div class="flexbox-container">
+              <p class="box">item1</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="content-item">
+          <h2 class="content-item-title">gridの配置について</h2>
+
+          <article class="entry">
+            <h3 class="entry-title">タイトル</h3>
+            <figure class="entry-image">
+              <img
+                src="https://placehold.co/600x400"
+                width="600"
+                height="400"
+                alt="画像の説明"
+              />
+            </figure>
+            <p class="entry-description">item2</p>
+            <p class="entry-btn">
+              <a href="#">詳細を見る</a>
+            </p>
+          </article>
+        </section>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <p class="site-footer-text">Copyright &copy; 2026 HTML講座</p>
+    </footer>
+  </body>
+</html>
