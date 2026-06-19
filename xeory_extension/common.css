@@ -39,6 +39,7 @@ body {
     display: block;
     line-height: 90px;
     padding: 0 16px;
+    transition: background-color 0.2s;
     &:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
