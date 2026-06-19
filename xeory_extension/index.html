@@ -3,258 +3,370 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XeoryExtension 記事ページサンプル</title>
+    <title>Xeory Extension</title>
+    <link rel="stylesheet" href="common.css" />
   </head>
-  <body>
-    <header>
-      <p>XeoryExtension</p>
-      <nav aria-label="メインメニュー">
-        <ul>
-          <li><a href="#">記事ページサンプル</a></li>
-          <li><a href="#">Extensionをダウンロード</a></li>
-        </ul>
+
+  <body class="page">
+    <header class="site-header">
+      <h1 class="site-title">Xeory Extension</h1>
+      <nav class="site-nav">
+        <dl class="site-nav-list">
+          <dt class="nav-list-title">メニュー</dt>
+          <dd class="nav-list-item">
+            <a class="nav-link" href="#">記事ページサンプル</a>
+          </dd>
+          <dd class="nav-list-item">
+            <a class="nav-link" href="#">Extensionをダウンロード</a>
+          </dd>
+        </dl>
       </nav>
     </header>
 
-    <main>
-      <article>
-        <h1>Xeory Extension</h1>
+    <main class="site-main">
+      <article class="content-container">
+        <header class="content-header">
+          <h2 class="content-title">Xeory Extension</h2>
 
-        <p>
-          Xeory Extensionはワンコラムのサイト型テーマです。
-          ユーザーに対して重要なコンテンツを効率的に届けられるようにデザインされています。
-          5種類のカラーバリエーションを用意しています。
-        </p>
+          <p class="content-text">
+            Xeory Extensionはワンコラムのサイト型テーマです。
+            ユーザーに対して重要なコンテンツを効率的に届けられるようにデザインされています。
+            5種類のカラーバリエーションを用意しています。
+          </p>
+        </header>
 
-        <p>
-          <a href="#">Extensionをダウンロード</a>
-        </p>
+        <section class="posts-container">
+          <h2 class="posts-title">人気のある記事</h2>
 
-        <section>
-          <h2>人気の記事</h2>
+          <div class="post-list">
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample02.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#1</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#1</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <p>NO.1</p>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample04.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#1</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#1</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <p>NO.2</p>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample01-800x533.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#4</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#4</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <p>NO.3</p>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample03.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#2</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#2</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <p>NO.4</p>
-          </article>
-
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#3</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <p>NO.5</p>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample05.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#3</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
+          </div>
         </section>
 
-        <section>
-          <h2>最近の投稿</h2>
+        <section class="posts-container">
+          <h2 class="posts-title">最近の投稿</h2>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#1</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <time datetime="2014-10-24">2014/10/24</time>
-          </article>
+          <div class="post-list">
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample02.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#1</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#1</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <time datetime="2014-10-24">2014/10/24</time>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample04.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#1</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#4</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <time datetime="2014-10-24">2014/10/24</time>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample01-800x533.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#4</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#3</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <time datetime="2014-10-24">2014/10/24</time>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample05.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#3</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
 
-          <article>
-            <img src="" alt="テスト投稿のサムネイル" />
-            <p>カテゴリー#2</p>
-            <h3><a href="#">テスト投稿</a></h3>
-            <time datetime="2014-10-24">2014/10/24</time>
-          </article>
+            <article class="post-item">
+              <img
+                class="post-image"
+                src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample03.jpg"
+                alt="サンプル画像"
+              />
+              <p class="post-category">カテゴリー#2</p>
+              <h3 class="post-title">テスト投稿</h3>
+            </article>
+          </div>
         </section>
 
-        <section>
-          <h2>XeoryExtensionの特徴</h2>
+        <section class="features">
+          <div class="app-heading">
+            <h2 class="app-title">XeoryExtensionの特徴</h2>
+            <p class="app-subtitle">feature</p>
+          </div>
 
-          <article>
-            <h3>モバイルレスポンシブ</h3>
-            <p>Mobile Responsive</p>
+          <div class="feature-item-list">
+            <article class="feature-item-card">
+              <div class="feature-item-image">
+                <img
+                  src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample02.jpg"
+                  alt="モバイルレスポンシブ"
+                />
+              </div>
+              <div class="feature-body">
+                <div class="feature-heading">
+                  <h3 class="feature-title">モバイルレスポンシブ</h3>
+                  <p class="feature-subtitle">Mobile Responsive</p>
+                </div>
+                <p class="feature-text">
+                  Xeory Extensionはレスポンシブデザインを採用しています。
+                  スマートフォンやタブレットなど各種デバイスで表示が最適化されます。
+                </p>
+                <a class="feature-link" href="#">詳しく見る</a>
+              </div>
+            </article>
 
-            <p>
-              Xeory Extensionはレスポンシブデザインを採用しています。
-              スマートフォンやタブレットなど各種デバイスで表示が最適化されます。
-            </p>
+            <article class="feature-card feature-card-reverse">
+              <div class="feature-image">
+                <img
+                  src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample04.jpg"
+                  alt="HTML5デザイン"
+                />
+              </div>
+              <div class="feature-body">
+                <div class="feature-heading">
+                  <h3 class="feature-title">HTML5デザイン</h3>
+                  <p class="feature-subtitle">HTML5 Design</p>
+                </div>
+                <p class="feature-text">
+                  Xeory
+                  ExtensionはHTML5言語でデザイン及びコーディングがなされています。
+                </p>
+                <a class="feature-link" href="#">詳しく見る</a>
+              </div>
+            </article>
 
-            <p><a href="#">詳しく見る</a></p>
-          </article>
+            <article class="feature-card">
+              <div class="feature-image">
+                <img
+                  src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample01-800x533.jpg"
+                  alt="SEO最適化"
+                />
+              </div>
+              <div class="feature-body">
+                <div class="feature-heading">
+                  <h3 class="feature-title">SEO最適化</h3>
+                  <p class="feature-subtitle">Search Engine Optimized</p>
+                </div>
+                <p class="feature-text">
+                  Xeory
+                  ExtensionはGoogleのSEOガイドラインに可能な限り沿った構造になっています。
+                  必要なのは良質なコンテンツだけです。
+                </p>
+                <a class="feature-link" href="#">詳しく見る</a>
+              </div>
+            </article>
 
-          <article>
-            <h3>HTML5デザイン</h3>
-            <p>HTML5 Design</p>
-
-            <p>
-              Xeory
-              ExtensionはHTML5言語でデザイン及びコーディングがなされています。
-            </p>
-
-            <p><a href="#">詳しく見る</a></p>
-          </article>
-
-          <article>
-            <h3>SEO最適化</h3>
-            <p>Search Engine Optimized</p>
-
-            <p>
-              Xeory
-              ExtensionはGoogleのSEOガイドラインに可能な限り沿った構造になっています。
-              必要なのは良質なコンテンツだけです。
-            </p>
-
-            <p><a href="#">詳しく見る</a></p>
-          </article>
-
-          <article>
-            <h3>高いカスタマイズ性</h3>
-            <p>Customizable</p>
-
-            <p>
-              Xeory Extensionはカスタマイズフリーです。
-              CSS、HTML、PHPの知識があれば自由にカスタマイズすることができます。
-            </p>
-
-            <p><a href="#">詳しく見る</a></p>
-          </article>
+            <article class="feature-card feature-card-reverse">
+              <div class="feature-image">
+                <img
+                  src="https://xeory.jp/extension/wp-content/uploads/sites/4/2025/01/sample03.jpg"
+                  alt="高いカスタマイズ性"
+                />
+              </div>
+              <div class="feature-body">
+                <div class="feature-heading">
+                  <h3 class="feature-title">高いカスタマイズ性</h3>
+                  <p class="feature-subtitle">Customizable</p>
+                </div>
+                <p class="feature-text">
+                  Xeory Extensionはカスタマイズフリーです。 CSS, HTML, PHP
+                  の知識があれば自由にカスタマイズすることができます。
+                </p>
+                <a class="feature-link" href="#">詳しく見る</a>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <section>
-          <h2>サービス紹介</h2>
+        <section class="service">
+          <div class="app-heading">
+            <h2 class="app-title">サービス紹介</h2>
+            <p class="app-subtitle">service</p>
+          </div>
 
-          <article>
-            <h3>Xeoryカスタマイズ</h3>
-            <p>Xeory Customize</p>
+          <div class="service-list">
+            <article class="service-card">
+              <h3 class="service-title">Xeoryカスタマイズ</h3>
+              <p class="service-subtitle">Xeory Customize</p>
+              <a class="service-link" href="https://xeory.jp/design-examples/"
+                >カスタマイズ事例を見る</a
+              >
+            </article>
 
-            <p>
-              <a href="#">カスタマイズ事例を見る</a>
-            </p>
-          </article>
-
-          <article>
-            <h3>コンテンツマーケティング</h3>
-            <p>Content Marketing</p>
-
-            <p>
-              <a href="#">コンテンツマーケティング成功事例を見る</a>
-            </p>
-          </article>
+            <article class="service-card">
+              <h3 class="service-title">コンテンツマーケティング</h3>
+              <p class="service-subtitle">Content Marketing</p>
+              <a class="service-link" href="https://lucy.ne.jp/bazubu/case"
+                >コンテンツマーケティング成功事例を見る</a
+              >
+            </article>
+          </div>
         </section>
 
-        <section>
-          <h2>会社紹介</h2>
+        <section class="company">
+          <div class="app-heading">
+            <h2 class="app-title">会社紹介</h2>
+            <p class="app-subtitle">company</p>
+          </div>
 
-          <dl>
-            <dt>会社名</dt>
-            <dd>株式会社ルーシー</dd>
+          <dl class="company-info">
+            <dt class="company-info-title">会社名</dt>
+            <dd class="company-info-text">株式会社ルーシー</dd>
 
-            <dt>電話番号</dt>
-            <dd>03-6452-9355</dd>
+            <dt class="company-info-title">電話番号</dt>
+            <dd class="company-info-text">03-6452-9355</dd>
 
-            <dt>住所</dt>
-            <dd>東京都港区新橋5丁目10-5 PMO新橋II 8F</dd>
+            <dt class="company-info-title">住所</dt>
+            <dd class="company-info-text">
+              東京都港区新橋5丁目10-5 PMO新橋II 8F
+            </dd>
           </dl>
         </section>
 
-        <section>
-          <h2>お問い合わせ</h2>
+        <section class="inquiry">
+          <div class="app-heading">
+            <h2 class="app-title">お問い合わせ</h2>
+            <p class="app-subtitle">inquiry</p>
+          </div>
 
-          <form>
-            <dl>
-              <dt>
-                <label for="name">お名前（必須）</label>
-              </dt>
-              <dd>
-                <input id="name" name="name" type="text" required />
+          <form class="contact-form">
+            <dl class="contact-form-list">
+              <dt class="contact-form-label">お名前 (必須)</dt>
+              <dd class="contact-form-field">
+                <input
+                  id="name"
+                  class="form-input"
+                  type="text"
+                  name="name"
+                  required
+                />
               </dd>
 
-              <dt>
-                <label for="email">メールアドレス（必須）</label>
-              </dt>
-              <dd>
-                <input id="email" name="email" type="email" required />
+              <dt class="contact-form-label">メールアドレス (必須)</dt>
+              <dd class="contact-form-field">
+                <input
+                  id="email"
+                  class="form-input"
+                  type="email"
+                  name="email"
+                  required
+                />
               </dd>
 
-              <dt>
-                <label for="subject">題名</label>
-              </dt>
-              <dd>
-                <input id="subject" name="subject" type="text" />
+              <dt class="contact-form-label">題名</dt>
+              <dd class="contact-form-field">
+                <input
+                  id="subject"
+                  class="form-input"
+                  type="text"
+                  name="subject"
+                />
               </dd>
 
-              <dt>
-                <label for="message">メッセージ本文</label>
-              </dt>
-              <dd>
-                <textarea id="message" name="message"></textarea>
+              <dt class="contact-form-label">メッセージ本文</dt>
+              <dd class="contact-form-field">
+                <textarea
+                  id="message"
+                  class="contact-form-textarea"
+                  name="message"
+                ></textarea>
               </dd>
             </dl>
 
-            <button type="submit">送信</button>
+            <p class="contact-form-submit">
+              <button class="submit-button" type="submit">送信</button>
+            </p>
           </form>
         </section>
       </article>
     </main>
 
-    <footer>
-      <h2>XeoryExtension メニュー</h2>
-      <ul>
-        <li><a href="#">記事ページサンプル</a></li>
-        <li><a href="#">Extensionをダウンロード</a></li>
-      </ul>
+    <footer class="site-footer">
+      <p class="footer-title">Xeory Extension</p>
+      <nav class="footer-nav">
+        <dl class="footer-nav-list">
+          <dt class="footer-nav-list-title">メニュー</dt>
+          <dd class="footer-nav-list-item">
+            <a class="footer-nav-link" href="#">記事ページサンプル</a>
+          </dd>
+          <dd class="footer--list-item">
+            <a class="footer-nav-link" href="#">Extensionをダウンロード</a>
+          </dd>
+        </dl>
 
-      <dl>
-        <dt>ソーシャルメディア</dt>
-        <dd><a href="#">X</a></dd>
-        <dd><a href="#">Facebook</a></dd>
-        <dd><a href="#">Feedly</a></dd>
-      </dl>
-
-      <p>
-        <small>© Copyright 2026 XeoryExtension. All rights reserved.</small>
-      </p>
+        <dl class="footer-nav-list">
+          <dt class="footer-nav-list-title">ソーシャルメディア</dt>
+          <dd class="footer-nav-list-item">
+            <a class="footer-nav-link" href="#">X</a>
+          </dd>
+          <dd class="footer-nav-list-item">
+            <a class="footer-nav-link" href="#">Facebook</a>
+          </dd>
+          <dd class="footer-nav-list-item">
+            <a class="footer-nav-link" href="#">Feedly</a>
+          </dd>
+        </dl>
+      </nav>
+      <p class="copyright">&copy; 2014 Progate, Inc</p>
     </footer>
   </body>
 </html>
